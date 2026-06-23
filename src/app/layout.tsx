@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import MobileCallBar from "@/components/MobileCallBar";
 import PageLoader from "@/components/PageLoader";
 import { localBusinessSchema } from "@/lib/schema";
 import { SITE } from "@/lib/site-data";
@@ -29,6 +30,8 @@ export const viewport: Viewport = {
   themeColor: "#082f49",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -38,8 +41,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <PageLoader />
         <JsonLd data={localBusinessSchema()} />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-0">{children}</main>
         <Footer />
+        <MobileCallBar />
       </body>
     </html>
   );

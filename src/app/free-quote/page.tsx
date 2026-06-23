@@ -27,10 +27,10 @@ export default function FreeQuotePage() {
         compact
         showCanvas={false}
       />
-      <section className="py-12 sm:py-16">
+      <section className="py-10 sm:py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
           <form
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+            className="water-card rounded-2xl p-5 shadow-md sm:p-8"
             action={`mailto:${SITE.email}`}
             method="post"
             encType="text/plain"

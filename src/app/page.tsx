@@ -36,7 +36,7 @@ export default function HomePage() {
         showCrew
       />
 
-      <SectionCanvas className="py-20 sm:py-28" canvas={false}>
+      <SectionCanvas className="py-12 sm:py-20 md:py-28" canvas={false}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="reveal">
@@ -97,7 +97,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/commercial-pressure-washing"
-            className="reveal shrink-0 rounded-full bg-white px-8 py-4 font-bold text-slate-900 shadow-xl transition hover:bg-cyan-50"
+            className="reveal w-full rounded-full bg-white px-6 py-4 text-center text-sm font-bold text-slate-900 shadow-xl transition hover:bg-cyan-50 sm:w-auto sm:px-8"
           >
             View Commercial Services →
           </Link>

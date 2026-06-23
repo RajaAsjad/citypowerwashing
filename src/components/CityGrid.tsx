@@ -24,7 +24,7 @@ export default function CityGrid() {
             <Link
               key={city.slug}
               href={`/${city.slug}`}
-              className="card-glow reveal group relative flex min-h-[340px] flex-col overflow-hidden rounded-3xl shadow-lg"
+              className="card-glow reveal group relative flex min-h-[280px] flex-col overflow-hidden rounded-2xl shadow-lg sm:min-h-[320px] sm:rounded-3xl md:min-h-[340px]"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Background image */}
@@ -49,15 +49,15 @@ export default function CityGrid() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               {/* Content */}
-              <div className="relative mt-auto p-6">
-                <div className="glass-panel mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1">
-                  <span className="text-sm">📍</span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-teal-700">{city.county}</span>
+              <div className="relative mt-auto p-4 sm:p-6">
+                <div className="glass-panel mb-2 inline-flex items-center gap-2 rounded-full px-2.5 py-1 sm:mb-3 sm:px-3">
+                  <span className="text-xs sm:text-sm">📍</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-teal-700 sm:text-xs">{city.county}</span>
                 </div>
-                <h3 className="mb-2 text-2xl font-extrabold text-white drop-shadow-lg">
+                <h3 className="mb-1.5 text-xl font-extrabold text-white drop-shadow-lg sm:mb-2 sm:text-2xl">
                   {city.city}, <span className="text-cyan-300">FL</span>
                 </h3>
-                <p className="mb-4 text-sm leading-relaxed text-slate-200/90 line-clamp-3 group-hover:line-clamp-none transition-all">
+                <p className="mb-3 text-xs leading-relaxed text-slate-200/90 line-clamp-2 sm:mb-4 sm:text-sm sm:line-clamp-3 md:group-hover:line-clamp-none">
                   {city.description}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-bold text-cyan-300 transition group-hover:gap-3">

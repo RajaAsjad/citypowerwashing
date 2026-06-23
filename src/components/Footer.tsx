@@ -6,7 +6,7 @@ import { IMAGES } from "@/lib/images";
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-slate-950 text-slate-300">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-14 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="mb-4 flex items-center gap-2">
             <Image

@@ -15,7 +15,7 @@ const GALLERY = [
 
 export default function ProjectGallery() {
   return (
-    <SectionCanvas dark className="py-20 sm:py-28">
+    <SectionCanvas dark className="py-12 sm:py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Recent Projects"
