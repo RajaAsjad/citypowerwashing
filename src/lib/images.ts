@@ -8,7 +8,7 @@ export const IMAGES = {
   commercial: "/images/commercial.webp",
   patioWashing: "/images/patio-washing.jpg",
   poolDeck: "/images/pool-deck.webp",
-  houseWashing: "/images/house-washing.webp",
+  houseWashing: "/images/residential.webp",
   roofCleaning: "/images/roof-cleaning.webp",
   projects: {
     before: "/images/project-before.webp",
@@ -18,21 +18,21 @@ export const IMAGES = {
     three: "/images/project-3.jpg",
   },
   services: {
-    "soft-house-washing": "/images/house-washing.webp",
+    "soft-house-washing": "/images/residential.webp",
     "soft-wash-roof-cleaning": "/images/roof-cleaning.webp",
     "driveway-pressure-washing": "/images/patio-washing.jpg",
     "concrete-sidewalk-cleaning": "/images/project-1.jpg",
     "pool-deck-cleaning": "/images/pool-deck.webp",
-    "fence-washing": "/images/residential.webp",
+    "fence-washing": "/images/project-before.webp",
     "gutter-cleaning": "/images/house-washing.webp",
-    "rust-removal": "/images/project-before.webp",
+    "rust-removal": "/images/project-after.webp",
     "commercial-pressure-washing": "/images/commercial.webp",
     "grease-oil-removal": "/images/project-after.webp",
   } as Record<string, string>,
   cities: {
-    "pressure-washing-deltona": "/images/house-washing.webp",
-    "pressure-washing-debary": "/images/residential.webp",
-    "pressure-washing-deland": "/images/project-2.jpg",
+    "pressure-washing-deltona": "/images/hero-bg.jpg",
+    "pressure-washing-debary": "/images/project-2.jpg",
+    "pressure-washing-deland": "/images/roof-cleaning-commercial.webp",
     "pressure-washing-orange-city": "/images/pool-deck.webp",
     "pressure-washing-lake-mary": "/images/patio-washing.jpg",
     "pressure-washing-sanford": "/images/project-3.jpg",
@@ -44,5 +44,5 @@ export function getServiceImage(slug: string): string {
 }
 
 export function getCityImage(slug: string): string {
-  return IMAGES.cities[slug] ?? IMAGES.houseWashing;
+  return IMAGES.cities[slug] ?? IMAGES.patioWashing;
 }

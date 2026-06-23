@@ -1,66 +1,57 @@
-import OptimizedImage from "./OptimizedImage";
+"use client";
+
+import ImageReveal from "./ImageReveal";
+import WaterCanvas from "./WaterCanvas";
 import { IMAGES } from "@/lib/images";
+import SectionHeader from "./SectionHeader";
+import SectionCanvas from "./SectionCanvas";
 
 const GALLERY = [
   { src: IMAGES.projects.before, label: "Before", alt: "Driveway before pressure washing in Deltona FL" },
   { src: IMAGES.projects.after, label: "After", alt: "Driveway after professional pressure washing" },
-  { src: IMAGES.projects.one, label: "Roof Streaks", alt: "Roof with black algae streaks before soft wash cleaning" },
-  { src: IMAGES.projects.two, label: "Roof Restored", alt: "Clean roof after soft wash roof cleaning Central Florida" },
-] as const;
-
-const EXTRA = [
-  { src: IMAGES.projects.three, alt: "Pressure washing results on Central Florida home exterior" },
-  { src: IMAGES.roofCleaning, alt: "Commercial roof cleaning in Deltona Florida" },
-  { src: IMAGES.poolDeck, alt: "Pool deck cleaning in Deltona FL" },
+  { src: IMAGES.projects.one, label: "Roof Streaks", alt: "Roof with black algae streaks before soft wash" },
+  { src: IMAGES.projects.two, label: "Roof Restored", alt: "Clean roof after soft wash in Central Florida" },
 ] as const;
 
 export default function ProjectGallery() {
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="gallery-heading">
+    <SectionCanvas dark className="py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-teal-600">Recent Projects</p>
-          <h2 id="gallery-heading" className="text-3xl font-bold text-slate-900 sm:text-4xl">
-            See The Central Florida Clean Difference
-          </h2>
-        </div>
+        <SectionHeader
+          eyebrow="Recent Projects"
+          title="See The Clean Difference"
+          subtitle="Real results from Deltona and surrounding Central Florida communities."
+          align="center"
+          light
+        />
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
-          {GALLERY.map((item) => (
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {GALLERY.map((item, i) => (
             <figure
               key={item.label}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-md"
+              className="reveal group relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-white/10"
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
-              <OptimizedImage
+              <ImageReveal
                 src={item.src}
                 alt={item.alt}
                 fill
                 sizes="(max-width: 640px) 50vw, 25vw"
-                className="object-cover transition duration-500 group-hover:scale-105"
+                className="object-cover transition duration-700 group-hover:scale-105"
+                rounded="rounded-2xl"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                <span className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
-                  {item.label}
+              <div className="absolute inset-0 opacity-0 transition group-hover:opacity-100">
+                <WaterCanvas className="mix-blend-soft-light opacity-40" />
+              </div>
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span className="inline-flex items-center gap-2 rounded-full bg-cyan-500/30 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
+                  {item.label === "Before" || item.label === "Roof Streaks" ? "🔴" : "✅"} {item.label}
                 </span>
               </figcaption>
             </figure>
           ))}
         </div>
-
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
-          {EXTRA.map((item) => (
-            <figure key={item.src} className="relative aspect-video overflow-hidden rounded-2xl shadow-sm">
-              <OptimizedImage
-                src={item.src}
-                alt={item.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-              />
-            </figure>
-          ))}
-        </div>
       </div>
-    </section>
+    </SectionCanvas>
   );
 }

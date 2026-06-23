@@ -1,18 +1,19 @@
-import Image, { type ImageProps } from "next/image";
+import ImageReveal from "./ImageReveal";
+import type { ImageProps } from "next/image";
 
 type Props = Omit<ImageProps, "alt"> & {
   alt: string;
   priority?: boolean;
+  rounded?: string;
 };
 
-export default function OptimizedImage({ alt, className, priority, ...props }: Props) {
+export default function OptimizedImage({ alt, className, priority, rounded, ...props }: Props) {
   return (
-    <Image
+    <ImageReveal
       alt={alt}
       className={className}
       priority={priority}
-      quality={85}
-      sizes={props.sizes ?? "(max-width: 768px) 100vw, 50vw"}
+      rounded={rounded}
       {...props}
     />
   );

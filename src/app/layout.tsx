@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
+import PageLoader from "@/components/PageLoader";
 import { localBusinessSchema } from "@/lib/schema";
 import { SITE } from "@/lib/site-data";
 import "./globals.css";
@@ -33,7 +34,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-slate-50 text-slate-900 antialiased">
+      <body className="flex min-h-full flex-col bg-sky-50 text-slate-900 antialiased">
+        <PageLoader />
         <JsonLd data={localBusinessSchema()} />
         <Header />
         <main className="flex-1">{children}</main>

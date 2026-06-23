@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
+  --background: #f0f9ff;
   --foreground: #0f172a;
+  --brand-deep: #082f49;
+  --brand-mid: #0e7490;
+  --brand-light: #22d3ee;
+  --glass: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.35);
 }
 
 @theme inline {
@@ -27,4 +32,95 @@ body {
 
 details summary::-webkit-details-marker {
   display: none;
+}
+
+/* ── Shimmer loader ── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 0%,
+    #f8fafc 40%,
+    #e2e8f0 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── Page loader ── */
+@keyframes loader-drop {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-18px) scale(1.15); opacity: 1; }
+}
+
+@keyframes loader-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loader-progress {
+  0% { width: 0%; }
+  60% { width: 85%; }
+  100% { width: 100%; }
+}
+
+@keyframes loader-fade-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.loader-drop {
+  animation: loader-drop 1.2s ease-in-out infinite;
+}
+
+.loader-ring {
+  animation: loader-ring 2s linear infinite;
+}
+
+.loader-progress {
+  animation: loader-progress 1.8s ease-in-out forwards;
+}
+
+.loader-exit {
+  animation: loader-fade-out 0.5s ease forwards 2s;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Card hover glow ── */
+.card-glow {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.card-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -12px rgba(14, 116, 144, 0.25);
+}
+
+/* ── Glass panel ── */
+.glass-panel {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── Section divider wave ── */
+.section-wave {
+  background: linear-gradient(180deg, transparent, rgba(14, 116, 144, 0.04));
 }
