@@ -1,65 +1,96 @@
-import Image from "next/image";
+import CityGrid from "@/components/CityGrid";
+import CTABanner from "@/components/CTABanner";
+import FAQ from "@/components/FAQ";
+import Hero from "@/components/Hero";
+import JsonLd from "@/components/JsonLd";
+import ProcessSteps from "@/components/ProcessSteps";
+import ServiceGrid from "@/components/ServiceGrid";
+import Testimonials from "@/components/Testimonials";
+import { homeMetadata } from "@/lib/metadata";
+import { faqSchema } from "@/lib/schema";
+import { FAQ_ITEMS, SITE } from "@/lib/site-data";
+import Link from "next/link";
 
-export default function Home() {
+export const metadata = homeMetadata();
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <JsonLd data={faqSchema([...FAQ_ITEMS])} />
+      <Hero
+        h1="Professional Pressure Washing & Soft Washing in Central Florida"
+        subtitle="City Power Washing restores roofs, driveways, siding, and commercial exteriors across Deltona, DeBary, DeLand, Orange City, Lake Mary, and Sanford—with safe methods and a 100% satisfaction guarantee."
+      />
+
+      <section className="border-b border-slate-200 bg-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-4 text-2xl font-bold text-slate-900 sm:text-3xl">
+                Safe Cleaning Methods for Every Surface
+              </h2>
+              <p className="mb-4 text-slate-600 leading-relaxed">
+                Florida humidity breeds algae, mildew, and black streaks that damage curb appeal and surfaces over time.
+                We match soft washing or controlled pressure to each material—never one-size-fits-all blasting.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-xl border border-slate-200 p-4">
+                  <h3 className="mb-2 font-bold text-teal-700">Residential</h3>
+                  <p className="text-sm text-slate-600">
+                    Roofs, siding, driveways, pool decks, fences, gutters, and more.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-slate-200 p-4">
+                  <h3 className="mb-2 font-bold text-teal-700">Commercial</h3>
+                  <p className="text-sm text-slate-600">
+                    Storefronts, HOAs, restaurants, offices, parking lots, and grease removal.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { label: "Before", tone: "from-slate-400 to-slate-600" },
+                { label: "After", tone: "from-cyan-400 to-teal-600" },
+                { label: "Roof Streaks", tone: "from-slate-500 to-slate-700" },
+                { label: "Roof Restored", tone: "from-sky-400 to-cyan-600" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className={`flex aspect-[4/3] items-end rounded-2xl bg-gradient-to-br ${item.tone} p-4`}
+                >
+                  <span className="rounded-full bg-black/30 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                    {item.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      <ServiceGrid />
+
+      <section className="bg-slate-900 py-12 text-white">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+          <div>
+            <h2 className="text-2xl font-bold">Commercial Pressure Washing</h2>
+            <p className="mt-2 text-slate-300">Storefronts, HOAs, restaurants, and parking lots on your schedule.</p>
+          </div>
+          <Link
+            href="/commercial-pressure-washing"
+            className="rounded-full bg-white px-6 py-3 font-bold text-slate-900 transition hover:bg-cyan-50"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            View Commercial Services
+          </Link>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <ProcessSteps />
+      <Testimonials />
+      <CityGrid />
+      <FAQ items={[...FAQ_ITEMS]} />
+      <CTABanner />
+    </>
   );
 }
