@@ -67,7 +67,7 @@ export default function ServicePageTemplate({ slug, content, showServices = true
               <p className="reveal mb-6 text-lg leading-relaxed text-slate-600">{page.intro}</p>
               <ul className="reveal space-y-3">
                 {page.benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3 rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
+                  <li key={b} className="flex items-start gap-3 rounded-xl water-card p-3 shadow-sm">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-teal-600 text-xs font-bold text-white">
                       ✓
                     </span>

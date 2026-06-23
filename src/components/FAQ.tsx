@@ -20,7 +20,7 @@ export default function FAQ({ items }: { items: FAQItem[] }) {
           {items.map((item, i) => (
             <details
               key={item.q}
-              className="reveal group rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/80 open:shadow-md open:ring-teal-200"
+              className="reveal group rounded-2xl water-card shadow-sm open:shadow-md open:ring-cyan-300/50"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <summary className="cursor-pointer list-none px-6 py-5 font-semibold text-slate-900 marker:hidden [&::-webkit-details-marker]:hidden">

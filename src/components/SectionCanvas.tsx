@@ -38,7 +38,7 @@ export default function SectionCanvas({ children, className = "", dark = false, 
             className={`absolute inset-0 ${
               dark
                 ? "bg-gradient-to-b from-slate-950/90 via-slate-950/95 to-slate-950"
-                : "bg-gradient-to-b from-sky-50/80 via-white/90 to-cyan-50/40"
+                : "bg-gradient-to-b from-sky-200/40 via-cyan-100/50 to-teal-100/40"
             }`}
           />
         </>

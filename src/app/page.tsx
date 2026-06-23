@@ -50,7 +50,7 @@ export default function HomePage() {
                   { src: IMAGES.residential, label: "Residential", desc: "Roofs, siding, driveways, pool decks & more." },
                   { src: IMAGES.commercial, label: "Commercial", desc: "Storefronts, HOAs, restaurants & parking lots." },
                 ].map((item) => (
-                  <div key={item.label} className="card-glow overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-200/80">
+                  <div key={item.label} className="card-glow overflow-hidden rounded-2xl water-card shadow-md">
                     <div className="relative aspect-video">
                       <ImageReveal src={item.src} alt={item.label} fill sizes="300px" className="object-cover" />
                     </div>
@@ -67,7 +67,7 @@ export default function HomePage() {
               {BEFORE_AFTER.map((item, i) => (
                 <figure
                   key={item.label}
-                  className="card-glow relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60"
+                  className="card-glow relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-cyan-300/30"
                   style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <ImageReveal src={item.src} alt={item.alt} fill sizes="300px" className="object-cover" rounded="rounded-2xl" />

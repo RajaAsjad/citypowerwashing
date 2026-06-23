@@ -39,7 +39,7 @@ export default function Hero({
       {showCanvas && <WaterCanvas className="mix-blend-soft-light opacity-70" />}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(34,211,238,0.18),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_80%,rgba(20,184,166,0.12),transparent_50%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sky-50 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sky-200/80 to-transparent" />
 
       <div className="relative mx-auto flex max-w-7xl flex-col justify-center px-4 py-24 sm:px-6 sm:py-32 lg:min-h-[inherit] lg:px-8 lg:py-36">
         <div className={`grid items-center gap-12 ${showCrew ? "lg:grid-cols-2" : ""}`}>
@@ -97,7 +97,7 @@ export default function Hero({
             {TRUST_BADGES.map((badge) => (
               <div key={badge.label} className="glass-panel rounded-2xl p-4">
                 <span className="mb-1 block text-2xl">{badge.icon}</span>
-                <span className="text-xs font-semibold leading-snug text-slate-700 sm:text-sm">{badge.label}</span>
+                <span className="text-xs font-semibold leading-snug text-cyan-900 sm:text-sm">{badge.label}</span>
               </div>
             ))}
           </div>

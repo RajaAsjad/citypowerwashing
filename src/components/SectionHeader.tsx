@@ -13,7 +13,7 @@ export default function SectionHeader({ eyebrow, title, subtitle, align = "left"
         className={`mb-3 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] ${
           light
             ? "border border-cyan-400/30 bg-cyan-500/10 text-cyan-300"
-            : "border border-teal-200 bg-teal-50 text-teal-700"
+            : "border border-cyan-300/40 bg-cyan-50/80 text-cyan-800"
         }`}
       >
         <span className={`h-1.5 w-1.5 rounded-full ${light ? "bg-cyan-400" : "bg-teal-500"}`} />
@@ -21,7 +21,7 @@ export default function SectionHeader({ eyebrow, title, subtitle, align = "left"
       </span>
       <h2
         className={`text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-tight ${
-          light ? "text-white" : "text-slate-900"
+          light ? "text-white" : "text-slate-800"
         }`}
       >
         {title}

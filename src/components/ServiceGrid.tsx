@@ -26,7 +26,7 @@ export default function ServiceGrid({ exclude }: { exclude?: string }) {
             <Link
               key={service.slug}
               href={`/${service.slug}`}
-              className="card-glow reveal group overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-200/80"
+              className="card-glow reveal group overflow-hidden rounded-2xl water-card shadow-md"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               <div className="relative aspect-[4/3] overflow-hidden">

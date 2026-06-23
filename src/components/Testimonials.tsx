@@ -19,7 +19,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <blockquote
               key={t.name}
-              className="reveal card-glow rounded-2xl bg-white/80 p-6 shadow-md ring-1 ring-slate-200/60 backdrop-blur-sm sm:p-8"
+              className="reveal card-glow rounded-2xl water-card p-6 shadow-md backdrop-blur-sm sm:p-8"
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <div className="mb-4 flex gap-0.5 text-amber-400" aria-label={`${t.rating} out of 5 stars`}>

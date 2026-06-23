@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${outfit.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-sky-50 text-slate-900 antialiased">
+      <body className="flex min-h-full flex-col text-slate-800 antialiased">
         <PageLoader />
         <JsonLd data={localBusinessSchema()} />
         <Header />

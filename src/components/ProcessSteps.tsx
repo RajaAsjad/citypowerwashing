@@ -19,7 +19,7 @@ export default function ProcessSteps() {
           {PROCESS_STEPS.map((step, i) => (
             <div
               key={step.step}
-              className="reveal card-glow relative overflow-hidden rounded-2xl bg-white p-6 shadow-md ring-1 ring-slate-200/80"
+              className="reveal card-glow relative overflow-hidden rounded-2xl water-card p-6 shadow-md"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className="absolute -right-4 -top-4 text-8xl font-black text-teal-100">{step.step}</div>

@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0f9ff;
-  --foreground: #0f172a;
+  --background: #dbeafe;
+  --foreground: #0c4a6e;
   --brand-deep: #082f49;
   --brand-mid: #0e7490;
   --brand-light: #22d3ee;
-  --glass: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.35);
+  --water-surface: rgba(224, 242, 254, 0.85);
+  --water-card: rgba(240, 249, 255, 0.92);
+  --water-border: rgba(34, 211, 238, 0.2);
+  --glass: rgba(224, 242, 254, 0.75);
+  --glass-border: rgba(34, 211, 238, 0.25);
 }
 
 @theme inline {
@@ -21,17 +24,51 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(
+    160deg,
+    #bae6fd 0%,
+    #e0f2fe 25%,
+    #ccfbf1 60%,
+    #cffafe 100%
+  );
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
 ::selection {
-  background: rgba(20, 184, 166, 0.25);
+  background: rgba(34, 211, 238, 0.35);
+  color: #0c4a6e;
 }
 
 details summary::-webkit-details-marker {
   display: none;
+}
+
+/* ── Nav link underline ── */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee, #2dd4bf);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 70%;
+  left: 15%;
+}
+
+/* ── Water card surface ── */
+.water-card {
+  background: var(--water-card);
+  border: 1px solid var(--water-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* ── Shimmer loader ── */
@@ -41,12 +78,7 @@ details summary::-webkit-details-marker {
 }
 
 .shimmer {
-  background: linear-gradient(
-    90deg,
-    #e2e8f0 0%,
-    #f8fafc 40%,
-    #e2e8f0 80%
-  );
+  background: linear-gradient(90deg, #bae6fd 0%, #e0f2fe 40%, #bae6fd 80%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease-in-out infinite;
 }
@@ -72,21 +104,10 @@ details summary::-webkit-details-marker {
   to { opacity: 0; visibility: hidden; }
 }
 
-.loader-drop {
-  animation: loader-drop 1.2s ease-in-out infinite;
-}
-
-.loader-ring {
-  animation: loader-ring 2s linear infinite;
-}
-
-.loader-progress {
-  animation: loader-progress 1.8s ease-in-out forwards;
-}
-
-.loader-exit {
-  animation: loader-fade-out 0.5s ease forwards 2s;
-}
+.loader-drop { animation: loader-drop 1.2s ease-in-out infinite; }
+.loader-ring { animation: loader-ring 2s linear infinite; }
+.loader-progress { animation: loader-progress 1.8s ease-in-out forwards; }
+.loader-exit { animation: loader-fade-out 0.5s ease forwards 2s; }
 
 /* ── Scroll reveal ── */
 .reveal {
@@ -103,13 +124,12 @@ details summary::-webkit-details-marker {
 
 /* ── Card hover glow ── */
 .card-glow {
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
 }
 
 .card-glow:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px -12px rgba(14, 116, 144, 0.25);
+  box-shadow: 0 24px 48px -12px rgba(14, 116, 144, 0.35);
 }
 
 /* ── Glass panel ── */
@@ -120,7 +140,12 @@ details summary::-webkit-details-marker {
   border: 1px solid var(--glass-border);
 }
 
-/* ── Section divider wave ── */
+/* ── Section water gradient ── */
 .section-wave {
-  background: linear-gradient(180deg, transparent, rgba(14, 116, 144, 0.04));
+  background: linear-gradient(
+    180deg,
+    rgba(186, 230, 253, 0.5) 0%,
+    rgba(204, 251, 241, 0.3) 50%,
+    rgba(207, 250, 254, 0.5) 100%
+  );
 }
