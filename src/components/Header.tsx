@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
+import { IMAGES } from "@/lib/images";
 import { NAV_LINKS, SITE } from "@/lib/site-data";
 
 export default function Header() {
@@ -12,9 +14,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-teal-600 text-lg font-bold text-white shadow-lg shadow-cyan-500/20">
-            CP
-          </span>
+          <Image
+            src={IMAGES.logo}
+            alt="City Power Washing logo"
+            width={44}
+            height={44}
+            className="h-10 w-10 rounded-xl object-contain shadow-lg shadow-cyan-500/20"
+            priority
+          />
           <div className="leading-tight">
             <span className="block text-sm font-bold tracking-tight text-white sm:text-base">
               City Power Washing

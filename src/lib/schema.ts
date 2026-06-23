@@ -6,7 +6,7 @@ export function localBusinessSchema() {
     "@type": "LocalBusiness",
     "@id": `${SITE.url}/#business`,
     name: SITE.name,
-    image: `${SITE.url}/og-image.png`,
+    image: `${SITE.url}/og-image.jpg`,
     url: SITE.url,
     telephone: SITE.phone,
     email: SITE.email,

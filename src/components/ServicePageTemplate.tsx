@@ -1,9 +1,11 @@
 import type { PageContent } from "@/lib/page-content";
 import { PAGE_CONTENT } from "@/lib/page-content";
-import { SITE } from "@/lib/site-data";
+import { getCityImage, getServiceImage } from "@/lib/images";
+import { CITY_PAGES, SITE } from "@/lib/site-data";
 import CTABanner from "./CTABanner";
 import FAQ from "./FAQ";
 import Hero from "./Hero";
+import OptimizedImage from "./OptimizedImage";
 import PricingTable from "./PricingTable";
 import ServiceGrid from "./ServiceGrid";
 import Testimonials from "./Testimonials";
@@ -17,11 +19,17 @@ type Props = {
   showServices?: boolean;
 };
 
+function resolveHeroImage(slug: string): string {
+  if (CITY_PAGES.some((c) => c.slug === slug)) return getCityImage(slug);
+  return getServiceImage(slug);
+}
+
 export default function ServicePageTemplate({ slug, content, showServices = true }: Props) {
   const page = content ?? PAGE_CONTENT[slug];
   if (!page) return null;
 
   const url = `${SITE.url}/${slug}`;
+  const heroImage = resolveHeroImage(slug);
 
   return (
     <>
@@ -35,11 +43,20 @@ export default function ServicePageTemplate({ slug, content, showServices = true
           ...(page.faq ? [faqSchema(page.faq)] : []),
         ]}
       />
-      <Hero h1={page.h1} subtitle={page.heroSubtitle} compact />
+      <Hero h1={page.h1} subtitle={page.heroSubtitle} compact image={heroImage} showCanvas={false} />
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-3">
             <div className="lg:col-span-2">
+              <div className="relative mb-8 aspect-video overflow-hidden rounded-2xl shadow-md">
+                <OptimizedImage
+                  src={heroImage}
+                  alt={page.h1}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
               <h2 className="mb-4 text-2xl font-bold text-slate-900">Professional Results You Can Trust</h2>
               <p className="mb-6 text-lg leading-relaxed text-slate-600">{page.intro}</p>
               <ul className="space-y-3">

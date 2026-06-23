@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CITY_PAGES, NAV_LINKS, RESIDENTIAL_SERVICES, SITE } from "@/lib/site-data";
+import { IMAGES } from "@/lib/images";
 
 export default function Footer() {
   return (
@@ -7,9 +9,13 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="mb-4 flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-400 to-teal-600 text-sm font-bold text-white">
-              CP
-            </span>
+            <Image
+              src={IMAGES.logo}
+              alt="City Power Washing"
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-lg object-contain"
+            />
             <span className="font-bold text-white">{SITE.name}</span>
           </div>
           <p className="mb-4 text-sm leading-relaxed text-slate-400">
